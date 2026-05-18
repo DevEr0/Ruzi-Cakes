@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ruzi Cakes — Yerevan's Sweet Sanctuary</title>
+<meta name="description" content="Ruzi Cakes — handcrafted cakes, pastries and desserts in the heart of Yerevan. Custom cakes, fresh daily, made with love." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#FAF5EE;
+  --cream-deep:#F3EADC;
+  --blush:#F5DCD4;
+  --blush-deep:#EBC4B7;
+  --rose:#D89A8C;
+  --rose-deep:#B66E5E;
+  --burgundy:#6B2737;
+  --burgundy-deep:#4A1924;
+  --gold:#C8A77B;
+  --gold-deep:#A38658;
+  --pistachio:#B8C5A0;
+  --charcoal:#2D2424;
+  --soft-pink:#FFE8E0;
+  --shadow-soft: 0 20px 60px -20px rgba(107,39,55,.18);
+  --shadow-deep: 0 30px 80px -25px rgba(74,25,36,.35);
+  --serif:'Italiana', 'Cormorant Garamond', serif;
+  --serif-body:'Cormorant Garamond', Georgia, serif;
+  --hand:'Caveat', cursive;
+  --sans:'Outfit', -apple-system, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:var(--serif-body);
+  font-size:18px;
+  color:var(--charcoal);
+  background:var(--cream);
+  overflow-x:hidden;
+  line-height:1.6;
+  font-weight:400;
+}
+
+/* ---- GRAIN TEXTURE OVERLAY ---- */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9999;
+  opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection{background:var(--burgundy);color:var(--cream)}
+
+/* ---- NAV ---- */
+nav.top{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  padding:22px 50px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .5s cubic-bezier(.2,.8,.2,1);
+  background:transparent;
+}
+nav.top.scrolled{
+  background:rgba(250,245,238,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:14px 50px;
+  box-shadow:0 1px 0 rgba(107,39,55,.08);
+}
+.brand{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:var(--burgundy);
+}
+.brand-mark{
+  width:42px;height:42px;
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-text{
+  font-family:var(--serif);
+  font-size:1.7rem;letter-spacing:.04em;
+  line-height:1;
+}
+.brand-text small{
+  display:block;
+  font-family:var(--hand);
+  font-size:.85rem;
+  color:var(--rose-deep);
+  letter-spacing:0;
+  margin-top:2px;
+}
+.nav-links{
+  display:flex;gap:38px;align-items:center;
+  list-style:none;
+}
+.nav-links a{
+  text-decoration:none;
+  color:var(--charcoal);
+  font-family:var(--sans);
+  font-size:.82rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-weight:400;
+  position:relative;
+  padding:6px 0;
+  transition:color .3s ease;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:50%;bottom:0;
+  width:0;height:1px;
+  background:var(--burgundy);
+  transition:all .35s ease;
+  transform:translateX(-50%);
+}
+.nav-links a:hover{color:var(--burgundy)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:var(--burgundy);
+  color:var(--cream) !important;
+  padding:10px 22px !important;
+  border-radius:999px;
+  font-size:.75rem !important;
+  transition:all .3s ease;
+}
+.nav-cta:hover{background:var(--burgundy-deep);transform:translateY(-1px)}
+.nav-cta::after{display:none}
+
+.hamburger{
+  display:none;
+  cursor:pointer;
+  width:32px;height:24px;
+  position:relative;z-index:1001;
+}
+.hamburger span{
+  display:block;
+  position:absolute;
+  height:2px;
+  width:100%;
+  background:var(--burgundy);
+  transition:.3s cubic-bezier(.4,0,.2,1);
+}
+.hamburger span:nth-child(1){top:0}
+.hamburger span:nth-child(2){top:11px}
+.hamburger span:nth-child(3){top:22px}
+.hamburger.open span:nth-child(1){top:11px;transform:rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){top:11px;transform:rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:var(--cream);
+  z-index:999;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .4s ease;
+}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu ul{
+  list-style:none;
+  text-align:center;
+}
+.mobile-menu ul li{margin:18px 0}
+.mobile-menu ul a{
+  font-family:var(--serif);
+  font-size:2.4rem;
+  color:var(--burgundy);
+  text-decoration:none;
+}
+
+/* ---- HERO ---- */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, var(--soft-pink) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, #F5DCD4 0%, transparent 55%),
+    linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+}
+.hero-deco{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.float-shape{
+  position:absolute;
+  will-change:transform;
+}
+.fs-1{top:8%;left:6%;width:120px;animation:floatA 12s ease-in-out infinite}
+.fs-2{top:18%;right:8%;width:90px;animation:floatB 14s ease-in-out infinite}
+.fs-3{bottom:14%;left:10%;width:110px;animation:floatA 16s ease-in-out infinite -2s}
+.fs-4{bottom:22%;right:12%;width:140px;animation:floatB 13s ease-in-out infinite -3s}
+.fs-5{top:50%;left:50%;width:60px;opacity:.5;animation:floatA 10s ease-in-out infinite -4s}
+
+@keyframes floatA{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(20px,-25px) rotate(8deg)}
+}
+@keyframes floatB{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(-18px,-20px) rotate(-6deg)}
+}
+
+.hero-inner{
+  text-align:center;
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:0 30px;
+}
+.hero-eyebrow{
+  font-family:var(--hand);
+  font-size:1.8rem;
+  color:var(--rose-deep);
+  margin-bottom:10px;
+  opacity:0;
+  animation:rise .9s .2s forwards cubic-bezier(.2,.8,.2,1);
+}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(3.5rem, 11vw, 9.5rem);
+  font-weight:400;
+  line-height:.92;
+  color:var(--burgundy);
+  letter-spacing:.01em;
+  margin-bottom:24px;
+}
+.hero h1 .word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(40px);
+  animation:rise 1s forwards cubic-bezier(.2,.8,.2,1);
+}
+.hero h1 .word:nth-child(1){animation-delay:.4s}
+.hero h1 .word:nth-child(2){animation-delay:.55s;font-style:italic;color:var(--rose-deep);}
+.hero-sub{
+  font-family:var(--serif-body);
+  font-size:1.3rem;
+  font-style:italic;
+  color:var(--charcoal);
+  max-width:550px;
+  margin:0 auto 36px;
+  opacity:0;
+  animation:rise .9s .85s forwards cubic-bezier(.2,.8,.2,1);
+  font-weight:300;
+}
+.hero-cta{
+  display:inline-flex;gap:18px;
+  flex-wrap:wrap;justify-content:center;
+  opacity:0;
+  animation:rise .9s 1.05s forwards cubic-bezier(.2,.8,.2,1);
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 36px;
+  border-radius:999px;
+  font-family:var(--sans);
+  font-size:.85rem;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  text-decoration:none;
+  cursor:pointer;
+  border:none;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  font-weight:400;
+}
+.btn-primary{background:var(--burgundy);color:var(--cream)}
+.btn-primary:hover{background:var(--burgundy-deep);transform:translateY(-2px);box-shadow:var(--shadow-soft)}
+.btn-secondary{
+  background:transparent;
+  color:var(--burgundy);
+  border:1px solid var(--burgundy);
+}
+.btn-secondary:hover{background:var(--burgundy);color:var(--cream)}
+
+.scroll-hint{
+  position:absolute;
+  bottom:30px;left:50%;
+  transform:translateX(-50%);
+  opacity:0;
+  animation:rise 1s 1.4s forwards, bob 2.4s 2.4s ease-in-out infinite;
+  font-family:var(--hand);
+  font-size:1rem;
+  color:var(--rose-deep);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-hint svg{width:18px;height:18px}
+
+@keyframes rise{
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes bob{
+  0%,100%{transform:translate(-50%,0)}
+  50%{transform:translate(-50%,-8px)}
+}
+
+/* ---- SECTION BASE ---- */
+section{
+  position:relative;
+  padding:120px 50px;
+}
+.section-label{
+  font-family:var(--hand);
+  font-size:1.5rem;
+  color:var(--rose-deep);
+  display:block;
+  margin-bottom:8px;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight:400;
+  line-height:1;
+  color:var(--burgundy);
+  margin-bottom:40px;
+}
+.section-title em{font-style:italic;color:var(--rose-deep)}
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* ---- ABOUT ---- */
+.about{
+  background:var(--cream);
+  position:relative;
+}
+.about-grid{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.about-text p{
+  margin-bottom:20px;
+  font-size:1.15rem;
+  line-height:1.75;
+  color:#3D2F2F;
+}
+.about-text .lede{
+  font-size:1.4rem;
+  font-style:italic;
+  color:var(--burgundy);
+  font-family:var(--serif-body);
+  font-weight:400;
+}
+.signature{
+  font-family:var(--hand);
+  font-size:1.8rem;
+  color:var(--rose-deep);
+  margin-top:24px;
+  display:inline-block;
+}
+.signature small{
+  display:block;
+  font-family:var(--sans);
+  font-size:.75rem;
+  letter-spacing:.2em;
+  color:var(--charcoal);
+  text-transform:uppercase;
+  margin-top:6px;
+}
+.about-art{
+  position:relative;
+  aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-art-frame{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center, var(--soft-pink) 0%, transparent 70%);
+  border-radius:50%;
+}
+.about-art svg{
+  position:relative;
+  width:90%;
+  max-width:500px;
+  filter:drop-shadow(0 30px 50px rgba(107,39,55,.2));
+}
+.about-stats{
+  position:absolute;
+  background:var(--cream);
+  padding:18px 24px;
+  border-radius:14px;
+  box-shadow:var(--shadow-soft);
+  font-family:var(--serif);
+  text-align:center;
+}
+.about-stats .num{
+  font-size:2.4rem;
+  color:var(--burgundy);
+  line-height:1;
+}
+.about-stats .lbl{
+  font-family:var(--sans);
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--charcoal);
+  margin-top:6px;
+}
+.stat-1{top:5%;right:-5%;animation:floatA 6s ease-in-out infinite}
+.stat-2{bottom:8%;left:-8%;animation:floatB 7s ease-in-out infinite -2s}
+
+/* ---- SPECIALTIES (parallax band) ---- */
+.specialties{
+  background:
+    linear-gradient(180deg, var(--cream) 0%, #F5DCD4 50%, var(--cream) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.specialties::before,
+.specialties::after{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  pointer-events:none;
+}
+.specialties::before{
+  background:radial-gradient(circle, rgba(200,167,123,.25), transparent 70%);
+  top:-200px;right:-200px;
+}
+.specialties::after{
+  background:radial-gradient(circle, rgba(184,197,160,.3), transparent 70%);
+  bottom:-200px;left:-200px;
+}
+.specialties-head{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 70px;
+  position:relative;z-index:2;
+}
+.specialties-head p{
+  font-size:1.2rem;
+  font-style:italic;
+  color:#5C4848;
+  max-width:550px;
+  margin:0 auto;
+}
+.cake-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
+  max-width:1300px;
+  margin:0 auto;
+  position:relative;z-index:2;
+}
+.cake-card{
+  background:var(--cream);
+  border-radius:24px;
+  padding:36px 28px;
+  text-align:center;
+  position:relative;
+  transition:all .5s cubic-bezier(.2,.8,.2,1);
+  overflow:hidden;
+  border:1px solid rgba(107,39,55,.06);
+}
+.cake-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 0%, var(--soft-pink), transparent 70%);
+  opacity:0;
+  transition:opacity .5s ease;
+}
+.cake-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-deep);
+}
+.cake-card:hover::before{opacity:1}
+.cake-card svg{
+  width:100px;height:100px;
+  margin-bottom:20px;
+  position:relative;
+  transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.cake-card:hover svg{transform:scale(1.08) rotate(-3deg)}
+.cake-card h3{
+  font-family:var(--serif);
+  font-size:1.7rem;
+  color:var(--burgundy);
+  margin-bottom:10px;
+  position:relative;
+}
+.cake-card p{
+  font-size:1rem;
+  color:#5C4848;
+  position:relative;
+  font-style:italic;
+}
+.cake-tag{
+  position:absolute;
+  top:18px;right:18px;
+  background:var(--gold);
+  color:var(--cream);
+  font-family:var(--sans);
+  font-size:.6rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:999px;
+}
+
+/* ---- PROCESS ---- */
+.process{
+  background:var(--cream-deep);
+  position:relative;
+  overflow:hidden;
+}
+.process-deco{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.4;
+}
+.process-head{
+  text-align:center;
+  margin-bottom:80px;
+  max-width:700px;
+  margin-left:auto;margin-right:auto;
+}
+.process-head p{
+  font-style:italic;
+  font-size:1.2rem;
+  color:#5C4848;
+}
+.process-steps{
+  max-width:1100px;
+  margin:0 auto;
+  position:relative;
+}
+.process-line{
+  position:absolute;
+  top:50px;
+  left:5%;right:5%;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+  z-index:0;
+}
+.steps-row{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:20px;
+  position:relative;
+  z-index:1;
+}
+.step{
+  text-align:center;
+}
+.step-num{
+  width:100px;height:100px;
+  margin:0 auto 24px;
+  background:var(--cream);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-soft);
+  position:relative;
+  transition:transform .5s ease;
+}
+.step:hover .step-num{transform:translateY(-6px) rotate(-5deg)}
+.step-num svg{width:48px;height:48px}
+.step-num::after{
+  content:attr(data-num);
+  position:absolute;
+  top:-12px;right:-8px;
+  width:34px;height:34px;
+  background:var(--burgundy);
+  color:var(--cream);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);
+  font-size:1.1rem;
+  border:3px solid var(--cream-deep);
+}
+.step h4{
+  font-family:var(--serif);
+  font-size:1.4rem;
+  color:var(--burgundy);
+  margin-bottom:10px;
+}
+.step p{
+  font-size:.98rem;
+  color:#5C4848;
+  font-style:italic;
+  line-height:1.5;
+}
+
+/* ---- CUSTOM ORDER CTA (parallax bg) ---- */
+.custom-cta{
+  position:relative;
+  padding:160px 50px;
+  text-align:center;
+  overflow:hidden;
+  background:var(--burgundy);
+  color:var(--cream);
+}
+.custom-cta-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.15;
+}
+.custom-cta-bg svg{
+  position:absolute;
+  width:200px;
+}
+.cca-1{top:10%;left:5%;animation:floatA 18s ease-in-out infinite}
+.cca-2{top:60%;left:15%;animation:floatB 15s ease-in-out infinite -3s;width:140px !important}
+.cca-3{top:20%;right:8%;animation:floatA 16s ease-in-out infinite -5s;width:170px !important}
+.cca-4{bottom:15%;right:18%;animation:floatB 20s ease-in-out infinite -7s}
+.custom-cta-inner{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+  margin:0 auto;
+}
+.custom-cta .section-label{color:var(--gold)}
+.custom-cta h2{
+  font-family:var(--serif);
+  font-size:clamp(2.5rem, 6vw, 5rem);
+  font-weight:400;
+  line-height:1.05;
+  margin-bottom:24px;
+}
+.custom-cta h2 em{color:var(--blush);font-style:italic}
+.custom-cta p{
+  font-size:1.2rem;
+  font-style:italic;
+  margin-bottom:36px;
+  opacity:.85;
+}
+.custom-cta .btn{
+  background:var(--gold);
+  color:var(--burgundy);
+}
+.custom-cta .btn:hover{background:var(--cream)}
+.phone-list{
+  margin-top:30px;
+  display:flex;justify-content:center;gap:30px;
+  flex-wrap:wrap;
+  font-family:var(--serif);
+}
+.phone-list a{
+  color:var(--cream);
+  text-decoration:none;
+  font-size:1.3rem;
+  border-bottom:1px solid rgba(250,245,238,.3);
+  transition:all .3s ease;
+  padding-bottom:2px;
+}
+.phone-list a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ---- REVIEWS ---- */
+.reviews{
+  background:var(--cream);
+  position:relative;
+}
+.reviews-head{
+  text-align:center;
+  margin-bottom:60px;
+}
+.rating-badge{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--cream-deep);
+  padding:14px 24px;
+  border-radius:999px;
+  margin-top:14px;
+}
+.rating-badge .stars{color:var(--gold);font-size:1.2rem;letter-spacing:2px}
+.rating-badge .score{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  color:var(--burgundy);
+}
+.rating-badge .label{
+  font-family:var(--sans);
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:#5C4848;
+}
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:30px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.review-card{
+  background:var(--cream-deep);
+  padding:34px;
+  border-radius:18px;
+  position:relative;
+  transition:transform .4s ease;
+}
+.review-card:hover{transform:translateY(-6px)}
+.review-card::before{
+  content:'\201C';
+  position:absolute;
+  top:-10px;left:18px;
+  font-family:var(--serif);
+  font-size:6rem;
+  color:var(--rose);
+  line-height:1;
+  opacity:.5;
+}
+.review-card p{
+  font-style:italic;
+  font-size:1.1rem;
+  line-height:1.65;
+  color:#3D2F2F;
+  margin-bottom:20px;
+  position:relative;
+}
+.review-meta{
+  display:flex;align-items:center;gap:12px;
+}
+.review-avatar{
+  width:42px;height:42px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--rose);
+  color:var(--cream);
+  font-family:var(--serif);
+  font-size:1.2rem;
+}
+.review-meta strong{
+  display:block;
+  font-family:var(--serif);
+  font-size:1.05rem;
+  color:var(--burgundy);
+  font-weight:500;
+}
+.review-meta small{
+  color:#5C4848;
+  font-size:.85rem;
+}
+
+/* ---- VISIT US (map) ---- */
+.visit{
+  background:var(--cream);
+  padding:120px 50px;
+}
+.visit-grid{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:60px;
+  align-items:stretch;
+}
+.visit-info h2{margin-bottom:14px}
+.visit-info > p{
+  font-size:1.15rem;
+  font-style:italic;
+  color:#5C4848;
+  margin-bottom:36px;
+}
+.info-block{
+  margin-bottom:28px;
+  padding-left:60px;
+  position:relative;
+}
+.info-block .ico{
+  position:absolute;
+  left:0;top:0;
+  width:42px;height:42px;
+  border-radius:50%;
+  background:var(--blush);
+  display:flex;align-items:center;justify-content:center;
+}
+.info-block .ico svg{width:18px;height:18px;color:var(--burgundy)}
+.info-block h4{
+  font-family:var(--sans);
+  font-size:.78rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--rose-deep);
+  margin-bottom:6px;
+  font-weight:500;
+}
+.info-block p, .info-block a{
+  font-family:var(--serif-body);
+  font-size:1.15rem;
+  color:var(--charcoal);
+  text-decoration:none;
+  line-height:1.5;
+}
+.info-block a:hover{color:var(--burgundy)}
+
+.map-wrap{
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:var(--shadow-deep);
+  min-height:500px;
+  position:relative;
+  border:8px solid var(--cream);
+}
+.map-wrap iframe{
+  width:100%;height:100%;
+  border:0;
+  display:block;
+  min-height:500px;
+}
+.map-pin{
+  position:absolute;
+  top:20px;left:20px;
+  background:var(--cream);
+  padding:10px 18px;
+  border-radius:999px;
+  font-family:var(--hand);
+  font-size:1.2rem;
+  color:var(--burgundy);
+  box-shadow:var(--shadow-soft);
+  z-index:2;
+}
+
+/* ---- CONTACT FORM ---- */
+.contact{
+  background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%);
+  padding:120px 50px;
+  position:relative;
+  overflow:hidden;
+}
+.contact-deco{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.3;
+}
+.contact-deco svg{
+  position:absolute;
+}
+.cd-1{top:10%;left:5%;width:120px;animation:floatA 14s ease-in-out infinite}
+.cd-2{bottom:8%;right:6%;width:160px;animation:floatB 16s ease-in-out infinite -3s}
+.contact-grid{
+  max-width:900px;
+  margin:0 auto;
+  position:relative;z-index:2;
+}
+.contact-head{
+  text-align:center;
+  margin-bottom:50px;
+}
+.contact-head p{
+  font-size:1.2rem;
+  font-style:italic;
+  color:#5C4848;
+  max-width:550px;
+  margin:0 auto;
+}
+.contact-form{
+  background:var(--cream);
+  padding:50px;
+  border-radius:24px;
+  box-shadow:var(--shadow-deep);
+}
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-bottom:20px;
+}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block;
+  font-family:var(--sans);
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--rose-deep);
+  margin-bottom:8px;
+  font-weight:500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid rgba(107,39,55,.15);
+  border-radius:12px;
+  background:var(--cream-deep);
+  font-family:var(--serif-body);
+  font-size:1.05rem;
+  color:var(--charcoal);
+  transition:all .3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  outline:none;
+  border-color:var(--burgundy);
+  background:var(--cream);
+  box-shadow:0 0 0 4px rgba(107,39,55,.08);
+}
+.form-group textarea{min-height:130px;resize:vertical}
+.form-submit{
+  text-align:center;
+  margin-top:30px;
+}
+.form-submit .btn{font-size:.85rem;padding:18px 50px}
+
+/* ---- FOOTER ---- */
+footer{
+  background:var(--burgundy-deep);
+  color:var(--blush);
+  padding:80px 50px 30px;
+  position:relative;
+  overflow:hidden;
+}
+.footer-grid{
+  max-width:1300px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:60px;
+  margin-bottom:60px;
+}
+.footer-brand h3{
+  font-family:var(--serif);
+  font-size:2.3rem;
+  color:var(--cream);
+  margin-bottom:10px;
+}
+.footer-brand .tagline{
+  font-family:var(--hand);
+  font-size:1.3rem;
+  color:var(--gold);
+  margin-bottom:18px;
+}
+.footer-brand p{
+  font-size:1rem;
+  line-height:1.65;
+  opacity:.7;
+  max-width:320px;
+}
+.footer-col h4{
+  font-family:var(--sans);
+  font-size:.78rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:18px;
+  font-weight:500;
+}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col a{
+  color:var(--blush);
+  text-decoration:none;
+  font-family:var(--serif-body);
+  font-size:1.05rem;
+  opacity:.75;
+  transition:all .3s ease;
+}
+.footer-col a:hover{opacity:1;color:var(--cream)}
+.social{
+  display:flex;gap:14px;
+  margin-top:14px;
+}
+.social a{
+  width:42px;height:42px;
+  border-radius:50%;
+  background:rgba(245,220,212,.1);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s ease;
+}
+.social a:hover{background:var(--gold);transform:translateY(-3px)}
+.social svg{width:18px;height:18px;color:var(--cream)}
+.footer-bottom{
+  border-top:1px solid rgba(245,220,212,.1);
+  padding-top:30px;
+  text-align:center;
+  font-family:var(--serif-body);
+  font-size:.95rem;
+  opacity:.6;
+  font-style:italic;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width:1024px){
+  .about-grid, .visit-grid{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+  .steps-row{
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  }
+  .process-line{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media (max-width:768px){
+  nav.top{padding:18px 24px}
+  nav.top.scrolled{padding:12px 24px}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  section{padding:80px 24px}
+  .visit, .contact, .custom-cta{padding:80px 24px}
+  .form-row{grid-template-columns:1fr}
+  .contact-form{padding:30px 24px}
+  .footer-grid{grid-template-columns:1fr;gap:40px}
+  .map-wrap{min-height:380px}
+  .map-wrap iframe{min-height:380px}
+  .custom-cta{padding:100px 24px}
+  .hero h1{letter-spacing:.005em}
+  .about-stats{padding:14px 18px}
+  .about-stats .num{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top" id="topnav">
+  <a href="#top" class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 60 60" fill="none">
+        <ellipse cx="30" cy="48" rx="22" ry="4" fill="#C8A77B"/>
+        <rect x="10" y="32" width="40" height="16" fill="#6B2737"/>
+        <rect x="10" y="32" width="40" height="3" fill="#FAF5EE"/>
+        <path d="M10 35 Q15 32 20 35 T30 35 T40 35 T50 35" stroke="#FAF5EE" stroke-width="2" fill="none"/>
+        <circle cx="20" cy="28" r="3" fill="#D89A8C"/>
+        <circle cx="30" cy="26" r="3" fill="#D89A8C"/>
+        <circle cx="40" cy="28" r="3" fill="#D89A8C"/>
+        <path d="M30 14 L32 22 L40 22 L34 26 L36 34 L30 30 L24 34 L26 26 L20 22 L28 22 Z" fill="#C8A77B"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      Ruzi Cakes
+      <small>since with love</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#specialties">Sweets</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="#contact" class="nav-cta">Order a Cake</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" class="mclose">About</a></li>
+    <li><a href="#specialties" class="mclose">Sweets</a></li>
+    <li><a href="#process" class="mclose">Process</a></li>
+    <li><a href="#visit" class="mclose">Visit</a></li>
+    <li><a href="#contact" class="mclose">Order a Cake</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-deco" id="heroDeco">
+    <svg class="float-shape fs-1" data-speed="0.3" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="55" rx="38" ry="14" fill="#D89A8C"/>
+      <rect x="12" y="38" width="76" height="20" fill="#FAF5EE"/>
+      <path d="M12 38 Q22 32 32 38 T52 38 T72 38 T88 38" fill="#D89A8C"/>
+      <circle cx="30" cy="34" r="4" fill="#6B2737"/>
+      <circle cx="50" cy="32" r="4" fill="#6B2737"/>
+      <circle cx="70" cy="34" r="4" fill="#6B2737"/>
+    </svg>
+    <svg class="float-shape fs-2" data-speed="0.5" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="55" rx="35" ry="12" fill="#C8A77B"/>
+      <ellipse cx="50" cy="45" rx="35" ry="12" fill="#F5DCD4"/>
+      <ellipse cx="50" cy="35" rx="35" ry="12" fill="#C8A77B"/>
+    </svg>
+    <svg class="float-shape fs-3" data-speed="0.4" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="35" fill="#6B2737"/>
+      <circle cx="50" cy="50" r="28" fill="#C8A77B"/>
+      <circle cx="40" cy="42" r="4" fill="#6B2737"/>
+      <circle cx="55" cy="48" r="4" fill="#6B2737"/>
+      <circle cx="48" cy="58" r="4" fill="#6B2737"/>
+    </svg>
+    <svg class="float-shape fs-4" data-speed="0.25" viewBox="0 0 100 100">
+      <path d="M50 12 Q70 12 75 30 Q80 50 60 60 L50 88 L40 60 Q20 50 25 30 Q30 12 50 12 Z" fill="#B66E5E"/>
+      <circle cx="50" cy="34" r="14" fill="#D89A8C"/>
+      <circle cx="45" cy="30" r="3" fill="#FAF5EE"/>
+    </svg>
+    <svg class="float-shape fs-5" data-speed="0.6" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="40" fill="#B8C5A0"/>
+      <circle cx="50" cy="50" r="20" fill="#FAF5EE"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Yerevan's sweet sanctuary</span>
+    <h1>
+      <span class="word">Ruzi</span>
+      <span class="word">Cakes</span>
+    </h1>
+    <p class="hero-sub">A small bakery in Arabkir where every cake is handcrafted, every pastry is fresh, and every customer leaves a little sweeter than they came.</p>
+    <div class="hero-cta">
+      <a href="#specialties" class="btn btn-primary">Explore our sweets</a>
+      <a href="#contact" class="btn btn-secondary">Custom orders</a>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-hint">
+    <span>scroll for more</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M7 13l5 5 5-5"/>
+      <path d="M7 7l5 5 5-5"/>
+    </svg>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="section-label">Our story</span>
+      <h2 class="section-title">Baked with <em>love</em>,<br>finished with care.</h2>
+      <p class="lede">Ruzi Cakes is a small, family-led pastry shop tucked into the Yeraz neighborhood of Arabkir.</p>
+      <p>What began as a passion for layered cakes and old-world recipes has grown into one of the area's most-loved sweet spots — but the philosophy hasn't changed. Everything is made by hand, in small batches, every single day.</p>
+      <p>No mass production, no shortcuts. Just real butter, ripe fruit, and the kind of patience that turns flour and sugar into something a little magical.</p>
+      <div class="signature">
+        Ռուզան Սեդրակյան
+        <small>founder & head pastry chef</small>
+      </div>
+    </div>
+    <div class="about-art reveal reveal-delay-2">
+      <div class="about-art-frame"></div>
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- stand -->
+        <ellipse cx="200" cy="370" rx="140" ry="14" fill="#C8A77B" opacity=".6"/>
+        <rect x="190" y="320" width="20" height="55" fill="#C8A77B"/>
+        <ellipse cx="200" cy="320" rx="120" ry="14" fill="#A38658"/>
+        <!-- cake bottom layer -->
+        <ellipse cx="200" cy="305" rx="115" ry="14" fill="#FAF5EE"/>
+        <rect x="85" y="245" width="230" height="60" fill="#6B2737"/>
+        <ellipse cx="200" cy="245" rx="115" ry="14" fill="#7A2C3F"/>
+        <!-- middle layer -->
+        <ellipse cx="200" cy="235" rx="100" ry="12" fill="#FAF5EE"/>
+        <rect x="100" y="180" width="200" height="55" fill="#D89A8C"/>
+        <ellipse cx="200" cy="180" rx="100" ry="12" fill="#E8B4A8"/>
+        <!-- top layer -->
+        <ellipse cx="200" cy="170" rx="80" ry="10" fill="#FAF5EE"/>
+        <rect x="120" y="120" width="160" height="50" fill="#F5DCD4"/>
+        <ellipse cx="200" cy="120" rx="80" ry="10" fill="#FFE8E0"/>
+        <!-- swirls on top -->
+        <path d="M130 120 Q140 100 150 120" stroke="#FAF5EE" stroke-width="3" fill="none"/>
+        <path d="M155 120 Q165 100 175 120" stroke="#FAF5EE" stroke-width="3" fill="none"/>
+        <path d="M180 120 Q190 100 200 120" stroke="#FAF5EE" stroke-width="3" fill="none"/>
+        <path d="M205 120 Q215 100 225 120" stroke="#FAF5EE" stroke-width="3" fill="none"/>
+        <path d="M230 120 Q240 100 250 120" stroke="#FAF5EE" stroke-width="3" fill="none"/>
+        <path d="M255 120 Q265 100 275 120" stroke="#FAF5EE" stroke-width="3" fill="none"/>
+        <!-- berries on top -->
+        <circle cx="160" cy="100" r="9" fill="#6B2737"/>
+        <circle cx="180" cy="92" r="11" fill="#B66E5E"/>
+        <circle cx="200" cy="86" r="13" fill="#6B2737"/>
+        <circle cx="220" cy="92" r="11" fill="#B66E5E"/>
+        <circle cx="240" cy="100" r="9" fill="#6B2737"/>
+        <circle cx="195" cy="78" r="4" fill="#D89A8C"/>
+        <!-- leaves -->
+        <ellipse cx="170" cy="98" rx="5" ry="2" fill="#B8C5A0" transform="rotate(-30 170 98)"/>
+        <ellipse cx="230" cy="98" rx="5" ry="2" fill="#B8C5A0" transform="rotate(30 230 98)"/>
+        <!-- drips -->
+        <path d="M85 245 Q90 270 95 250 Q100 280 110 255 Q120 270 130 250" fill="#6B2737"/>
+        <path d="M315 245 Q310 270 305 250 Q300 280 290 255 Q280 270 270 250" fill="#6B2737"/>
+        <!-- gold accent dots -->
+        <circle cx="140" cy="205" r="3" fill="#C8A77B"/>
+        <circle cx="200" cy="210" r="3" fill="#C8A77B"/>
+        <circle cx="260" cy="205" r="3" fill="#C8A77B"/>
+        <circle cx="170" cy="270" r="3" fill="#C8A77B"/>
+        <circle cx="200" cy="275" r="3" fill="#C8A77B"/>
+        <circle cx="230" cy="270" r="3" fill="#C8A77B"/>
+      </svg>
+      <div class="about-stats stat-1">
+        <div class="num">100%</div>
+        <div class="lbl">Handmade</div>
+      </div>
+      <div class="about-stats stat-2">
+        <div class="num">4.4 ★</div>
+        <div class="lbl">Loved by Yerevan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specialties" id="specialties">
+  <div class="specialties-head reveal">
+    <span class="section-label">The menu</span>
+    <h2 class="section-title">Our signature <em>sweets</em></h2>
+    <p>From rustic layered cakes to delicate tartlets — a rotating selection of fresh pastries, baked daily, finished by hand.</p>
+  </div>
+  <div class="cake-grid">
+
+    <div class="cake-card reveal">
+      <span class="cake-tag">Bestseller</span>
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="80" rx="38" ry="6" fill="#C8A77B" opacity=".4"/>
+        <rect x="20" y="55" width="60" height="25" fill="#6B2737"/>
+        <ellipse cx="50" cy="55" rx="30" ry="6" fill="#7A2C3F"/>
+        <rect x="25" y="38" width="50" height="20" fill="#D89A8C"/>
+        <ellipse cx="50" cy="38" rx="25" ry="5" fill="#E8B4A8"/>
+        <ellipse cx="50" cy="33" rx="25" ry="5" fill="#FAF5EE"/>
+        <circle cx="40" cy="25" r="5" fill="#6B2737"/>
+        <circle cx="50" cy="22" r="5" fill="#B66E5E"/>
+        <circle cx="60" cy="25" r="5" fill="#6B2737"/>
+      </svg>
+      <h3>Layered Cakes</h3>
+      <p>Nut, chocolate, and crumb-topped — our pride and joy.</p>
+    </div>
+
+    <div class="cake-card reveal reveal-delay-1">
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="36" ry="5" fill="#C8A77B" opacity=".4"/>
+        <ellipse cx="50" cy="70" rx="32" ry="10" fill="#C8A77B"/>
+        <ellipse cx="50" cy="55" rx="32" ry="10" fill="#FFE8E0"/>
+        <ellipse cx="50" cy="40" rx="32" ry="10" fill="#C8A77B"/>
+        <circle cx="40" cy="35" r="3" fill="#6B2737"/>
+        <circle cx="55" cy="33" r="3" fill="#6B2737"/>
+        <circle cx="62" cy="38" r="3" fill="#6B2737"/>
+      </svg>
+      <h3>Macarons</h3>
+      <p>Crisp shells, soft centers, every flavor imaginable.</p>
+    </div>
+
+    <div class="cake-card reveal reveal-delay-2">
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="35" ry="5" fill="#C8A77B" opacity=".4"/>
+        <path d="M25 75 L25 50 Q25 40 35 40 L65 40 Q75 40 75 50 L75 75 Z" fill="#C8A77B"/>
+        <ellipse cx="50" cy="40" rx="25" ry="6" fill="#FFE8E0"/>
+        <circle cx="40" cy="38" r="5" fill="#6B2737"/>
+        <circle cx="50" cy="35" r="5" fill="#B8C5A0"/>
+        <circle cx="60" cy="38" r="5" fill="#6B2737"/>
+        <path d="M35 25 Q40 20 45 25" stroke="#B8C5A0" stroke-width="1.5" fill="none"/>
+      </svg>
+      <h3>Lemon & Pistachio Tartlets</h3>
+      <p>Buttery shells, vivid citrus, jewel-bright finish.</p>
+    </div>
+
+    <div class="cake-card reveal reveal-delay-3">
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="38" ry="5" fill="#C8A77B" opacity=".4"/>
+        <path d="M15 70 Q15 45 50 45 Q85 45 85 70 Z" fill="#FAF5EE"/>
+        <path d="M20 65 Q35 50 50 65" stroke="#D89A8C" stroke-width="2" fill="none"/>
+        <path d="M40 60 Q55 45 70 60" stroke="#D89A8C" stroke-width="2" fill="none"/>
+        <path d="M30 70 Q50 55 75 70" stroke="#B66E5E" stroke-width="2" fill="none"/>
+      </svg>
+      <h3>Meringue Rolls</h3>
+      <p>Pillow-soft, cloud-light, finished with cream and fruit.</p>
+    </div>
+
+    <div class="cake-card reveal">
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="35" ry="5" fill="#C8A77B" opacity=".4"/>
+        <rect x="22" y="50" width="56" height="30" fill="#6B2737"/>
+        <ellipse cx="50" cy="50" rx="28" ry="5" fill="#7A2C3F"/>
+        <rect x="22" y="50" width="56" height="6" fill="#FAF5EE"/>
+        <rect x="22" y="60" width="56" height="6" fill="#C8A77B"/>
+        <rect x="22" y="70" width="56" height="6" fill="#FAF5EE"/>
+        <circle cx="35" cy="44" r="2" fill="#6B2737"/>
+        <circle cx="50" cy="42" r="2" fill="#6B2737"/>
+        <circle cx="65" cy="44" r="2" fill="#6B2737"/>
+      </svg>
+      <h3>Tiramisu</h3>
+      <p>Espresso-soaked, mascarpone-laced, cocoa-dusted classic.</p>
+    </div>
+
+    <div class="cake-card reveal reveal-delay-1">
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="38" ry="5" fill="#C8A77B" opacity=".4"/>
+        <rect x="20" y="55" width="60" height="25" fill="#4A1924"/>
+        <ellipse cx="50" cy="55" rx="30" ry="6" fill="#6B2737"/>
+        <path d="M20 55 Q30 48 40 55 T60 55 T80 55" fill="#4A1924"/>
+        <ellipse cx="50" cy="50" rx="30" ry="4" fill="#C8A77B"/>
+        <path d="M30 48 L35 42 L40 48 L45 40 L50 48 L55 42 L60 48 L65 40 L70 48" stroke="#FAF5EE" stroke-width="1.5" fill="none"/>
+      </svg>
+      <h3>Prague Cake</h3>
+      <p>Rich chocolate sponge, apricot glaze, decades of love.</p>
+    </div>
+
+    <div class="cake-card reveal reveal-delay-2">
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="35" ry="5" fill="#C8A77B" opacity=".4"/>
+        <path d="M20 75 L20 55 Q20 45 30 45 L70 45 Q80 45 80 55 L80 75 Z" fill="#C8A77B"/>
+        <ellipse cx="50" cy="45" rx="30" ry="6" fill="#FAF5EE"/>
+        <ellipse cx="38" cy="38" rx="5" ry="6" fill="#6B2737"/>
+        <ellipse cx="50" cy="35" rx="6" ry="7" fill="#B66E5E"/>
+        <ellipse cx="62" cy="38" rx="5" ry="6" fill="#6B2737"/>
+        <ellipse cx="45" cy="42" rx="3" ry="4" fill="#D89A8C"/>
+        <ellipse cx="55" cy="42" rx="3" ry="4" fill="#D89A8C"/>
+      </svg>
+      <h3>Fruit Tarts</h3>
+      <p>Seasonal berries and stone fruit on vanilla custard.</p>
+    </div>
+
+    <div class="cake-card reveal reveal-delay-3">
+      <span class="cake-tag">Order ahead</span>
+      <svg viewBox="0 0 100 100">
+        <ellipse cx="50" cy="85" rx="40" ry="5" fill="#C8A77B" opacity=".4"/>
+        <rect x="18" y="60" width="64" height="22" fill="#D89A8C"/>
+        <ellipse cx="50" cy="60" rx="32" ry="5" fill="#E8B4A8"/>
+        <rect x="22" y="42" width="56" height="20" fill="#F5DCD4"/>
+        <ellipse cx="50" cy="42" rx="28" ry="5" fill="#FFE8E0"/>
+        <ellipse cx="50" cy="38" rx="28" ry="5" fill="#FAF5EE"/>
+        <path d="M30 38 Q35 28 40 38" stroke="#D89A8C" stroke-width="2" fill="none"/>
+        <path d="M45 38 Q50 28 55 38" stroke="#D89A8C" stroke-width="2" fill="none"/>
+        <path d="M60 38 Q65 28 70 38" stroke="#D89A8C" stroke-width="2" fill="none"/>
+        <path d="M50 18 L52 25 L58 25 L53 29 L55 35 L50 31 L45 35 L47 29 L42 25 L48 25 Z" fill="#C8A77B"/>
+      </svg>
+      <h3>Custom Cakes</h3>
+      <p>Birthdays, weddings, anniversaries — designed for your day.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-head reveal">
+    <span class="section-label">How it's made</span>
+    <h2 class="section-title">Five steps. <em>One cake.</em></h2>
+    <p>No shortcuts, no factory lines — just the same slow, hands-on process we've used from day one.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-line"></div>
+    <div class="steps-row">
+
+      <div class="step reveal">
+        <div class="step-num" data-num="1">
+          <svg viewBox="0 0 60 60" fill="none">
+            <ellipse cx="30" cy="50" rx="22" ry="4" fill="#C8A77B" opacity=".4"/>
+            <path d="M15 20 Q15 12 30 12 Q45 12 45 20 L45 42 Q45 48 30 48 Q15 48 15 42 Z" fill="#D89A8C"/>
+            <ellipse cx="30" cy="20" rx="15" ry="4" fill="#FAF5EE"/>
+            <circle cx="25" cy="28" r="3" fill="#6B2737"/>
+            <circle cx="34" cy="32" r="3" fill="#B66E5E"/>
+            <circle cx="28" cy="38" r="3" fill="#6B2737"/>
+            <ellipse cx="37" cy="26" rx="3" ry="4" fill="#B8C5A0"/>
+          </svg>
+        </div>
+        <h4>Selected</h4>
+        <p>Real butter, fresh eggs, ripe fruit — every morning.</p>
+      </div>
+
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num" data-num="2">
+          <svg viewBox="0 0 60 60" fill="none">
+            <ellipse cx="30" cy="50" rx="20" ry="4" fill="#C8A77B" opacity=".4"/>
+            <path d="M14 22 L46 22 L42 50 L18 50 Z" fill="#FAF5EE" stroke="#C8A77B" stroke-width="1.5"/>
+            <ellipse cx="30" cy="22" rx="16" ry="4" fill="#F5DCD4"/>
+            <path d="M30 6 L30 22" stroke="#6B2737" stroke-width="2"/>
+            <ellipse cx="30" cy="6" rx="3" ry="4" fill="#6B2737"/>
+            <path d="M22 28 Q30 32 38 28" stroke="#D89A8C" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <h4>Mixed</h4>
+        <p>By hand, in small batches — never rushed.</p>
+      </div>
+
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num" data-num="3">
+          <svg viewBox="0 0 60 60" fill="none">
+            <rect x="10" y="22" width="40" height="30" rx="3" fill="#C8A77B"/>
+            <rect x="14" y="26" width="32" height="22" fill="#6B2737"/>
+            <circle cx="20" cy="34" r="3" fill="#C8A77B"/>
+            <circle cx="30" cy="34" r="3" fill="#C8A77B"/>
+            <circle cx="40" cy="34" r="3" fill="#C8A77B"/>
+            <path d="M22 14 Q22 8 26 8 Q26 14 22 14" fill="#D89A8C" opacity=".6"/>
+            <path d="M30 12 Q30 6 34 6 Q34 12 30 12" fill="#D89A8C" opacity=".6"/>
+            <path d="M38 14 Q38 8 42 8 Q42 14 38 14" fill="#D89A8C" opacity=".6"/>
+          </svg>
+        </div>
+        <h4>Baked</h4>
+        <p>Slow oven, careful eyes, a kitchen that smells like home.</p>
+      </div>
+
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num" data-num="4">
+          <svg viewBox="0 0 60 60" fill="none">
+            <ellipse cx="30" cy="52" rx="22" ry="3" fill="#C8A77B" opacity=".4"/>
+            <rect x="14" y="32" width="32" height="20" fill="#6B2737"/>
+            <ellipse cx="30" cy="32" rx="16" ry="3" fill="#7A2C3F"/>
+            <path d="M14 32 Q20 28 26 32 T38 32 T46 32" fill="#FAF5EE"/>
+            <circle cx="22" cy="28" r="2" fill="#6B2737"/>
+            <circle cx="30" cy="26" r="2" fill="#6B2737"/>
+            <circle cx="38" cy="28" r="2" fill="#6B2737"/>
+            <path d="M40 18 L44 14 L42 12 L46 8" stroke="#C8A77B" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="46" cy="8" r="2" fill="#C8A77B"/>
+          </svg>
+        </div>
+        <h4>Decorated</h4>
+        <p>Piped, glazed, finished with fruit, gold, or fresh herbs.</p>
+      </div>
+
+      <div class="step reveal reveal-delay-4">
+        <div class="step-num" data-num="5">
+          <svg viewBox="0 0 60 60" fill="none">
+            <rect x="12" y="24" width="36" height="28" rx="2" fill="#D89A8C"/>
+            <rect x="12" y="24" width="36" height="6" fill="#B66E5E"/>
+            <path d="M20 24 Q20 18 24 18 Q24 24 20 24" fill="#FAF5EE"/>
+            <path d="M36 24 Q36 18 40 18 Q40 24 36 24" fill="#FAF5EE"/>
+            <path d="M22 30 Q30 38 38 30" stroke="#FAF5EE" stroke-width="2" fill="none"/>
+            <path d="M28 14 L30 18 L32 14" stroke="#C8A77B" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M30 18 L30 24" stroke="#C8A77B" stroke-width="2"/>
+          </svg>
+        </div>
+        <h4>Delivered</h4>
+        <p>Boxed, ribboned, on your table the same day.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM CTA -->
+<section class="custom-cta">
+  <div class="custom-cta-bg">
+    <svg class="cca-1" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="40" fill="#FAF5EE"/>
+      <circle cx="50" cy="50" r="25" fill="#D89A8C"/>
+    </svg>
+    <svg class="cca-2" viewBox="0 0 100 100">
+      <path d="M50 12 Q70 12 75 30 Q80 50 60 60 L50 88 L40 60 Q20 50 25 30 Q30 12 50 12 Z" fill="#C8A77B"/>
+    </svg>
+    <svg class="cca-3" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="55" rx="38" ry="14" fill="#FAF5EE"/>
+      <rect x="12" y="38" width="76" height="20" fill="#D89A8C"/>
+    </svg>
+    <svg class="cca-4" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="35" fill="#FAF5EE"/>
+    </svg>
+  </div>
+  <div class="custom-cta-inner reveal">
+    <span class="section-label">Have a moment to celebrate?</span>
+    <h2>Let us bake your <em>memory</em>.</h2>
+    <p>Birthdays. Weddings. Just-because Tuesdays. Tell us the occasion and we'll make a cake worth remembering.</p>
+    <a href="#contact" class="btn">Start your order</a>
+    <div class="phone-list">
+      <a href="tel:+37499009725">+374 99 009 725</a>
+      <a href="tel:+37494456515">+374 94 456 515</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews-head reveal">
+    <span class="section-label">What people are saying</span>
+    <h2 class="section-title">Loved by the <em>neighborhood</em></h2>
+    <div class="rating-badge">
+      <span class="stars">★★★★★</span>
+      <span class="score">4.4</span>
+      <span class="label">on Yandex</span>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <p>The layered nut cake is honestly the best I've had in Yerevan. Fresh, balanced, not too sweet — and you can taste that it's made by hand.</p>
+      <div class="review-meta">
+        <div class="review-avatar">A</div>
+        <div>
+          <strong>Anahit M.</strong>
+          <small>Regular since 2022</small>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal reveal-delay-1">
+      <p>Ordered a custom birthday cake with two days' notice. They sent photos along the way, delivered on time, and it was beautiful. Worth every dram.</p>
+      <div class="review-meta">
+        <div class="review-avatar">D</div>
+        <div>
+          <strong>David K.</strong>
+          <small>Custom order</small>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal reveal-delay-2">
+      <p>Their lemon-pistachio tartlets are addictive. Cozy little place, warm staff, and the coffee is genuinely good. A neighborhood treasure.</p>
+      <div class="review-meta">
+        <div class="review-avatar">M</div>
+        <div>
+          <strong>Marine S.</strong>
+          <small>Walk-in regular</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="visit-grid">
+    <div class="visit-info reveal">
+      <span class="section-label">Come say hello</span>
+      <h2 class="section-title">Visit our <em>kitchen</em>.</h2>
+      <p>Find us tucked into the Yeraz residential district — a small storefront, a warm welcome, and the smell of something baking.</p>
+
+      <div class="info-block">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h4>Address</h4>
+        <p>Adonts Street 4, 1st floor<br/>Yeraz district, Arabkir<br/>Yerevan, Armenia</p>
+      </div>
+
+      <div class="info-block">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h4>Hours</h4>
+        <p>Daily · 08:30 — 22:00</p>
+      </div>
+
+      <div class="info-block">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <h4>Call us</h4>
+        <p><a href="tel:+37499009725">+374 99 009 725</a><br/><a href="tel:+37494456515">+374 94 456 515</a></p>
+      </div>
+
+      <div class="info-block">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </div>
+        <h4>Follow along</h4>
+        <p><a href="https://www.instagram.com/ruzicakes/" target="_blank" rel="noopener">@ruzicakes on Instagram</a><br/><a href="https://www.facebook.com/ruzicake/" target="_blank" rel="noopener">Ruzi Cake on Facebook</a></p>
+      </div>
+    </div>
+
+    <div class="map-wrap reveal reveal-delay-2">
+      <div class="map-pin">you'll find us here ✿</div>
+      <iframe
+        src="https://www.google.com/maps?q=40.2114783,44.5251767&z=17&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ruzi Cakes location map">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact" id="contact">
+  <div class="contact-deco">
+    <svg class="cd-1" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="55" rx="38" ry="14" fill="#6B2737"/>
+      <rect x="12" y="38" width="76" height="20" fill="#FAF5EE"/>
+      <path d="M12 38 Q22 32 32 38 T52 38 T72 38 T88 38" fill="#6B2737"/>
+    </svg>
+    <svg class="cd-2" viewBox="0 0 100 100">
+      <path d="M50 12 Q70 12 75 30 Q80 50 60 60 L50 88 L40 60 Q20 50 25 30 Q30 12 50 12 Z" fill="#6B2737"/>
+    </svg>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-head reveal">
+      <span class="section-label">Get in touch</span>
+      <h2 class="section-title">Tell us about <em>your cake</em>.</h2>
+      <p>Custom orders, large parties, special diets — fill out the form and we'll reach out within a day.</p>
+    </div>
+
+    <form class="contact-form reveal reveal-delay-1" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" required placeholder="Anna" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone or email</label>
+          <input type="text" id="phone" required placeholder="+374 ..." />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="occasion">Occasion</label>
+          <select id="occasion">
+            <option>Birthday</option>
+            <option>Wedding</option>
+            <option>Anniversary</option>
+            <option>Corporate event</option>
+            <option>Just because</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Needed by</label>
+          <input type="date" id="date" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cake">What would you like?</label>
+        <select id="cake">
+          <option>Layered cake</option>
+          <option>Fruit tart</option>
+          <option>Tiramisu</option>
+          <option>Prague cake</option>
+          <option>Meringue roll</option>
+          <option>Macarons (box)</option>
+          <option>Surprise me</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">A little more detail</label>
+        <textarea id="message" placeholder="Servings, flavors, dietary notes, dedication on the cake..."></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary">Send the request</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Ruzi Cakes</h3>
+      <div class="tagline">made by hand, in Yerevan</div>
+      <p>A small bakery in Arabkir making layered cakes, pastries and desserts the slow, careful way. Every cake has someone's name on it — sometimes literally.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#about">Our story</a></li>
+        <li><a href="#specialties">Sweets</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Order a cake</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+37499009725">+374 99 009 725</a></li>
+        <li><a href="tel:+37494456515">+374 94 456 515</a></li>
+        <li>Adonts St. 4, Arabkir</li>
+        <li>Yerevan, Armenia</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <div class="social">
+        <a href="https://www.instagram.com/ruzicakes/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/ruzicake/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://www.google.com/maps/place/Ruzi+Cakes/@40.2114783,44.5251767" target="_blank" rel="noopener" aria-label="Google Maps">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © Ruzi Cakes · Adonts 4, Yerevan · Baked fresh, always.
+  </div>
+</footer>
+
+<script>
+// ---- NAV SCROLL ----
+const nav = document.getElementById('topnav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// ---- HAMBURGER ----
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobileMenu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mclose').forEach(a => {
+  a.addEventListener('click', () => {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ---- REVEAL ON SCROLL ----
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ---- PARALLAX (hero floating shapes follow scroll) ----
+const heroShapes = document.querySelectorAll('#heroDeco .float-shape');
+let ticking = false;
+function applyParallax() {
+  const y = window.scrollY;
+  heroShapes.forEach(s => {
+    const speed = parseFloat(s.dataset.speed || '0.3');
+    s.style.transform = `translateY(${y * speed}px)`;
+  });
+  ticking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(applyParallax);
+    ticking = true;
+  }
+}, { passive: true });
+
+// ---- MOUSE PARALLAX (subtle pointer-based drift on hero) ----
+const heroDeco = document.getElementById('heroDeco');
+document.querySelector('.hero').addEventListener('mousemove', (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = (e.clientX - rect.width / 2) / rect.width;
+  const y = (e.clientY - rect.height / 2) / rect.height;
+  heroShapes.forEach((s, i) => {
+    const depth = (i + 1) * 6;
+    const baseY = window.scrollY * parseFloat(s.dataset.speed || '0.3');
+    s.style.transform = `translate(${x * depth}px, ${baseY + y * depth}px)`;
+  });
+});
+
+// ---- FORM ----
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  const original = btn.textContent;
+  btn.textContent = 'Sent ✿ we will call you';
+  btn.style.background = 'var(--gold)';
+  btn.style.color = 'var(--burgundy)';
+  setTimeout(() => {
+    e.target.reset();
+    btn.textContent = original;
+    btn.style.background = '';
+    btn.style.color = '';
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
