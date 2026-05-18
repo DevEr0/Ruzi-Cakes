@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Ruzi Cakes — Yerevan's Sweet Sanctuary</title>
 <meta name="description" content="Ruzi Cakes — handcrafted cakes, pastries and desserts in the heart of Yerevan. Custom cakes, fresh daily, made with love." />
+<meta name="theme-color" content="#6B2737" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Caveat:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -32,7 +33,7 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
 body{
   font-family:var(--serif-body);
   font-size:18px;
@@ -41,9 +42,10 @@ body{
   overflow-x:hidden;
   line-height:1.6;
   font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* ---- GRAIN TEXTURE OVERLAY ---- */
 body::before{
   content:'';
   position:fixed;
@@ -56,7 +58,9 @@ body::before{
 
 ::selection{background:var(--burgundy);color:var(--cream)}
 
-/* ---- NAV ---- */
+/* ============================================================
+   NAV
+   ============================================================ */
 nav.top{
   position:fixed;
   top:0;left:0;right:0;
@@ -76,15 +80,18 @@ nav.top.scrolled{
 .brand{
   display:flex;align-items:center;gap:12px;
   text-decoration:none;color:var(--burgundy);
+  min-width:0;
 }
 .brand-mark{
   width:42px;height:42px;
+  flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
 }
 .brand-text{
   font-family:var(--serif);
   font-size:1.7rem;letter-spacing:.04em;
   line-height:1;
+  min-width:0;
 }
 .brand-text small{
   display:block;
@@ -137,6 +144,7 @@ nav.top.scrolled{
   cursor:pointer;
   width:32px;height:24px;
   position:relative;z-index:1001;
+  flex-shrink:0;
 }
 .hamburger span{
   display:block;
@@ -145,6 +153,7 @@ nav.top.scrolled{
   width:100%;
   background:var(--burgundy);
   transition:.3s cubic-bezier(.4,0,.2,1);
+  border-radius:2px;
 }
 .hamburger span:nth-child(1){top:0}
 .hamburger span:nth-child(2){top:11px}
@@ -175,7 +184,9 @@ nav.top.scrolled{
   text-decoration:none;
 }
 
-/* ---- HERO ---- */
+/* ============================================================
+   HERO
+   ============================================================ */
 .hero{
   min-height:100vh;
   position:relative;
@@ -272,6 +283,7 @@ nav.top.scrolled{
   border:none;
   transition:all .35s cubic-bezier(.2,.8,.2,1);
   font-weight:400;
+  white-space:nowrap;
 }
 .btn-primary{background:var(--burgundy);color:var(--cream)}
 .btn-primary:hover{background:var(--burgundy-deep);transform:translateY(-2px);box-shadow:var(--shadow-soft)}
@@ -292,6 +304,7 @@ nav.top.scrolled{
   font-size:1rem;
   color:var(--rose-deep);
   display:flex;flex-direction:column;align-items:center;gap:8px;
+  text-decoration:none;
 }
 .scroll-hint svg{width:18px;height:18px}
 
@@ -303,7 +316,9 @@ nav.top.scrolled{
   50%{transform:translate(-50%,-8px)}
 }
 
-/* ---- SECTION BASE ---- */
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
 section{
   position:relative;
   padding:120px 50px;
@@ -336,7 +351,9 @@ section{
 .reveal-delay-3{transition-delay:.3s}
 .reveal-delay-4{transition-delay:.4s}
 
-/* ---- ABOUT ---- */
+/* ============================================================
+   ABOUT
+   ============================================================ */
 .about{
   background:var(--cream);
   position:relative;
@@ -421,7 +438,9 @@ section{
 .stat-1{top:5%;right:-5%;animation:floatA 6s ease-in-out infinite}
 .stat-2{bottom:8%;left:-8%;animation:floatB 7s ease-in-out infinite -2s}
 
-/* ---- SPECIALTIES (parallax band) ---- */
+/* ============================================================
+   SPECIALTIES
+   ============================================================ */
 .specialties{
   background:
     linear-gradient(180deg, var(--cream) 0%, #F5DCD4 50%, var(--cream) 100%);
@@ -519,9 +538,12 @@ section{
   text-transform:uppercase;
   padding:4px 10px;
   border-radius:999px;
+  z-index:1;
 }
 
-/* ---- PROCESS ---- */
+/* ============================================================
+   PROCESS
+   ============================================================ */
 .process{
   background:var(--cream-deep);
   position:relative;
@@ -605,7 +627,9 @@ section{
   line-height:1.5;
 }
 
-/* ---- CUSTOM ORDER CTA (parallax bg) ---- */
+/* ============================================================
+   CUSTOM CTA
+   ============================================================ */
 .custom-cta{
   position:relative;
   padding:160px 50px;
@@ -670,7 +694,9 @@ section{
 }
 .phone-list a:hover{border-color:var(--gold);color:var(--gold)}
 
-/* ---- REVIEWS ---- */
+/* ============================================================
+   REVIEWS
+   ============================================================ */
 .reviews{
   background:var(--cream);
   position:relative;
@@ -685,6 +711,8 @@ section{
   padding:14px 24px;
   border-radius:999px;
   margin-top:14px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 .rating-badge .stars{color:var(--gold);font-size:1.2rem;letter-spacing:2px}
 .rating-badge .score{
@@ -743,6 +771,7 @@ section{
   color:var(--cream);
   font-family:var(--serif);
   font-size:1.2rem;
+  flex-shrink:0;
 }
 .review-meta strong{
   display:block;
@@ -756,7 +785,9 @@ section{
   font-size:.85rem;
 }
 
-/* ---- VISIT US (map) ---- */
+/* ============================================================
+   VISIT
+   ============================================================ */
 .visit{
   background:var(--cream);
   padding:120px 50px;
@@ -835,7 +866,9 @@ section{
   z-index:2;
 }
 
-/* ---- CONTACT FORM ---- */
+/* ============================================================
+   CONTACT
+   ============================================================ */
 .contact{
   background:linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%);
   padding:120px 50px;
@@ -920,7 +953,9 @@ section{
 }
 .form-submit .btn{font-size:.85rem;padding:18px 50px}
 
-/* ---- FOOTER ---- */
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer{
   background:var(--burgundy-deep);
   color:var(--blush);
@@ -997,40 +1032,383 @@ footer{
   font-style:italic;
 }
 
-/* ---- RESPONSIVE ---- */
+/* ============================================================
+   TABLET (≤1024px)
+   ============================================================ */
 @media (max-width:1024px){
+  section{padding:100px 40px}
   .about-grid, .visit-grid{
     grid-template-columns:1fr;
-    gap:60px;
+    gap:70px;
   }
+  .about-art{max-width:480px;margin:0 auto;width:100%}
   .steps-row{
     grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+    gap:40px 20px;
   }
   .process-line{display:none}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
 }
+
+/* ============================================================
+   PHONE (≤768px) — full redesign for narrow viewports
+   ============================================================ */
 @media (max-width:768px){
-  nav.top{padding:18px 24px}
-  nav.top.scrolled{padding:12px 24px}
+  body{font-size:17px}
+
+  /* --- NAV --- */
+  nav.top{padding:16px 20px}
+  nav.top.scrolled{padding:12px 20px;box-shadow:0 2px 20px rgba(107,39,55,.08)}
+  .brand-mark{width:36px;height:36px}
+  .brand-text{font-size:1.35rem}
+  .brand-text small{font-size:.75rem}
   .nav-links{display:none}
   .hamburger{display:block}
-  section{padding:80px 24px}
-  .visit, .contact, .custom-cta{padding:80px 24px}
-  .form-row{grid-template-columns:1fr}
-  .contact-form{padding:30px 24px}
-  .footer-grid{grid-template-columns:1fr;gap:40px}
-  .map-wrap{min-height:380px}
+  .mobile-menu ul a{font-size:2rem}
+
+  /* --- HERO — bring decoration TO the edges so it frames rather than competes --- */
+  .hero{
+    min-height:100vh;
+    min-height:100svh;
+    padding:100px 20px 80px;
+  }
+  .hero-inner{padding:0 8px;max-width:100%}
+
+  .hero-eyebrow{
+    font-size:1.45rem;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(4.2rem, 19vw, 6rem);
+    line-height:.92;
+    letter-spacing:.005em;
+    margin-bottom:26px;
+  }
+  .hero-sub{
+    font-size:1.1rem;
+    line-height:1.55;
+    margin-bottom:34px;
+    padding:0 6px;
+    max-width:420px;
+  }
+  .hero-cta{
+    flex-direction:column;
+    gap:12px;
+    width:100%;
+    max-width:340px;
+    margin:0 auto;
+  }
+  .hero-cta .btn{
+    width:100%;
+    justify-content:center;
+    padding:18px 24px;
+    font-size:.78rem;
+    letter-spacing:.18em;
+  }
+
+  /* Decorative shapes hug the edges, are LARGER not smaller */
+  .float-shape{transition:opacity .6s ease}
+  .fs-1{top:7%;left:-30px;width:140px;opacity:.9}
+  .fs-2{top:13%;right:-25px;width:120px;opacity:.75}
+  .fs-3{bottom:8%;left:-25px;width:120px;opacity:.85}
+  .fs-4{bottom:18%;right:-30px;width:150px;opacity:.7}
+  .fs-5{top:46%;left:-40px;width:90px;opacity:.35}
+
+  .scroll-hint{bottom:22px;font-size:.95rem}
+  .scroll-hint svg{width:16px;height:16px}
+
+  /* --- SECTION BASE --- */
+  section{padding:80px 22px}
+  .section-label{font-size:1.3rem;margin-bottom:6px}
+  .section-title{
+    font-size:clamp(2.3rem, 9vw, 3.4rem);
+    margin-bottom:28px;
+  }
+
+  /* --- ABOUT — pull stat chips fully inside the viewport --- */
+  .about{padding:80px 22px}
+  .about-grid{gap:50px}
+  .about-text .lede{font-size:1.25rem;line-height:1.55}
+  .about-text p{font-size:1.08rem}
+  .signature{font-size:1.55rem;margin-top:18px}
+  .signature small{font-size:.7rem}
+
+  .about-art{
+    max-width:380px;
+    width:90%;
+    margin:0 auto;
+  }
+  .about-art svg{width:82%;max-width:330px}
+  .about-stats{
+    padding:13px 18px;
+    border-radius:12px;
+  }
+  .about-stats .num{font-size:1.85rem}
+  .about-stats .lbl{font-size:.62rem;letter-spacing:.16em;margin-top:4px}
+  .stat-1{top:0;right:0}
+  .stat-2{bottom:2%;left:0}
+
+  /* --- SPECIALTIES — single column with rhythm --- */
+  .specialties::before{width:380px;height:380px;top:-150px;right:-150px}
+  .specialties::after{width:380px;height:380px;bottom:-150px;left:-150px}
+  .specialties-head{margin-bottom:48px}
+  .specialties-head p{font-size:1.1rem}
+  .cake-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+    max-width:440px;
+  }
+  .cake-card{
+    padding:38px 28px 34px;
+    border-radius:22px;
+  }
+  .cake-card svg{
+    width:92px;height:92px;
+    margin-bottom:18px;
+  }
+  .cake-card h3{font-size:1.55rem}
+  .cake-card p{font-size:1rem;max-width:300px;margin:0 auto}
+  .cake-tag{
+    top:14px;right:14px;
+    font-size:.58rem;
+    padding:4px 9px;
+  }
+
+  /* --- PROCESS — vertical timeline (the big mobile win) --- */
+  .process-head{margin-bottom:60px}
+  .process-head p{font-size:1.08rem}
+  .process-line{display:none}
+  .process-steps{max-width:520px;margin:0 auto}
+  .steps-row{
+    grid-template-columns:1fr;
+    gap:46px;
+    position:relative;
+    padding-left:96px;
+  }
+  /* the connecting vertical line */
+  .steps-row::before{
+    content:'';
+    position:absolute;
+    left:40px;
+    top:30px;
+    bottom:30px;
+    width:2px;
+    background:linear-gradient(180deg,
+      transparent 0%,
+      var(--gold) 8%,
+      var(--gold) 92%,
+      transparent 100%);
+    z-index:0;
+  }
+  .step{
+    text-align:left;
+    position:relative;
+  }
+  .step-num{
+    position:absolute;
+    left:-96px;
+    top:-6px;
+    width:80px;height:80px;
+    margin:0;
+    z-index:1;
+  }
+  .step-num svg{width:38px;height:38px}
+  .step-num::after{
+    width:28px;height:28px;
+    font-size:.95rem;
+    top:-8px;right:-6px;
+    border-width:2px;
+  }
+  .step h4{
+    font-size:1.4rem;
+    margin-bottom:6px;
+    padding-top:8px;
+  }
+  .step p{font-size:1rem;line-height:1.55}
+
+  /* --- CUSTOM CTA — keep the floating cakes but hug the edges --- */
+  .custom-cta{padding:100px 22px}
+  .custom-cta h2{
+    font-size:clamp(2.3rem, 9vw, 3.4rem);
+    line-height:1.05;
+    margin-bottom:22px;
+  }
+  .custom-cta p{font-size:1.1rem;margin-bottom:32px}
+  .custom-cta .btn{padding:18px 36px}
+  .custom-cta-bg{opacity:.18}
+  .cca-1{width:110px;top:5%;left:-30px}
+  .cca-2{width:80px !important;top:52%;left:-20px}
+  .cca-3{width:120px !important;top:8%;right:-35px}
+  .cca-4{width:95px;bottom:6%;right:-25px}
+  .phone-list{
+    flex-direction:column;
+    gap:14px;
+    margin-top:26px;
+  }
+  .phone-list a{font-size:1.2rem}
+
+  /* --- REVIEWS --- */
+  .reviews-head{margin-bottom:46px}
+  .reviews-grid{
+    grid-template-columns:1fr;
+    gap:22px;
+    max-width:480px;
+  }
+  .review-card{
+    padding:36px 26px 28px;
+    border-radius:16px;
+  }
+  .review-card::before{font-size:5rem;top:-6px;left:14px}
+  .review-card p{font-size:1.05rem;line-height:1.6;margin-bottom:18px}
+  .rating-badge{padding:12px 20px;gap:10px}
+  .rating-badge .score{font-size:1.2rem}
+  .rating-badge .label{font-size:.7rem}
+
+  /* --- VISIT --- */
+  .visit{padding:80px 22px}
+  .visit-grid{gap:48px}
+  .visit-info > p{font-size:1.08rem;margin-bottom:30px}
+  .info-block{
+    padding-left:54px;
+    margin-bottom:24px;
+  }
+  .info-block .ico{
+    width:38px;height:38px;
+  }
+  .info-block .ico svg{width:16px;height:16px}
+  .info-block h4{font-size:.72rem;margin-bottom:4px}
+  .info-block p, .info-block a{font-size:1.08rem}
+  .map-wrap{
+    min-height:420px;
+    border-width:6px;
+    border-radius:20px;
+  }
+  .map-wrap iframe{min-height:420px}
+  .map-pin{
+    top:14px;left:14px;
+    font-size:1.05rem;
+    padding:8px 14px;
+  }
+
+  /* --- CONTACT — touch-friendly, no iOS zoom --- */
+  .contact{padding:80px 18px}
+  .cd-1{width:90px;top:6%;left:-20px}
+  .cd-2{width:120px;bottom:5%;right:-30px}
+  .contact-head{margin-bottom:36px}
+  .contact-head p{font-size:1.08rem}
+  .contact-form{
+    padding:34px 24px;
+    border-radius:20px;
+  }
+  .form-row{
+    grid-template-columns:1fr;
+    gap:0;
+    margin-bottom:0;
+  }
+  .form-group{margin-bottom:18px}
+  .form-group label{font-size:.7rem;margin-bottom:7px}
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    font-size:16px;          /* keep ≥16px to prevent iOS zoom on focus */
+    padding:15px 16px;
+    border-radius:11px;
+  }
+  .form-group textarea{min-height:120px}
+  .form-submit{margin-top:24px}
+  .form-submit .btn{
+    width:100%;
+    padding:18px 24px;
+    font-size:.8rem;
+  }
+
+  /* --- FOOTER — center-aligned, calmer rhythm --- */
+  footer{
+    padding:60px 24px 26px;
+    text-align:center;
+  }
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:42px;
+    margin-bottom:40px;
+  }
+  .footer-brand h3{font-size:2rem}
+  .footer-brand .tagline{font-size:1.2rem}
+  .footer-brand p{margin:0 auto;max-width:340px}
+  .footer-col h4{margin-bottom:14px}
+  .footer-col ul{
+    display:inline-block;
+    text-align:left;
+  }
+  .social{justify-content:center;margin-top:6px}
+  .footer-bottom{padding-top:24px;font-size:.9rem}
+}
+
+/* ============================================================
+   EXTRA-SMALL PHONES (≤380px) — tighten further
+   ============================================================ */
+@media (max-width:380px){
+  body{font-size:16px}
+  nav.top{padding:14px 16px}
+  nav.top.scrolled{padding:11px 16px}
+  .brand-text{font-size:1.2rem}
+  .brand-text small{font-size:.7rem}
+
+  .hero{padding:90px 16px 70px}
+  .hero-eyebrow{font-size:1.3rem}
+  .hero h1{font-size:4.4rem}
+  .hero-sub{font-size:1.02rem;margin-bottom:30px}
+
+  section{padding:70px 18px}
+  .visit, .contact, .custom-cta{padding:70px 18px}
+  .section-title{font-size:2.2rem;margin-bottom:24px}
+
+  .about-art{max-width:320px}
+  .about-stats{padding:11px 15px}
+  .about-stats .num{font-size:1.65rem}
+
+  .cake-card{padding:32px 22px 30px}
+  .cake-card svg{width:84px;height:84px}
+  .cake-card h3{font-size:1.45rem}
+
+  .steps-row{padding-left:84px;gap:40px}
+  .steps-row::before{left:34px}
+  .step-num{left:-84px;width:70px;height:70px}
+  .step-num svg{width:34px;height:34px}
+  .step-num::after{width:24px;height:24px;font-size:.85rem;top:-6px;right:-4px}
+  .step h4{font-size:1.25rem}
+
+  .custom-cta h2{font-size:2.25rem}
+  .custom-cta p{font-size:1.02rem}
+  .phone-list a{font-size:1.1rem}
+
+  .review-card{padding:32px 22px 26px}
+  .review-card p{font-size:1rem}
+
+  .map-wrap{min-height:380px;border-width:5px}
   .map-wrap iframe{min-height:380px}
-  .custom-cta{padding:100px 24px}
-  .hero h1{letter-spacing:.005em}
-  .about-stats{padding:14px 18px}
-  .about-stats .num{font-size:2rem}
+  .map-pin{font-size:.95rem;padding:7px 12px}
+
+  .contact-form{padding:28px 20px;border-radius:18px}
+
+  .footer-brand h3{font-size:1.8rem}
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <!-- NAV -->
 <nav class="top" id="topnav">
     <a href="#top" class="brand">
